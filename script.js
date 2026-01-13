@@ -30,12 +30,12 @@ function generateBarcode() {
         return;
     }
     
-    if (number.length !== 11) {
-        showError('Raqam 11 xonali bo\'lishi kerak!');
+    if (number.length !== 12) {
+        showError('Raqam 12 xonali bo\'lishi kerak!');
         return;
     }
     
-    if (!/^\d{11}$/.test(number)) {
+    if (!/^\d{12}$/.test(number)) {
         showError('Faqat raqamlar kiritilishi kerak!');
         return;
     }
