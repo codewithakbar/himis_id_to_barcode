@@ -387,8 +387,10 @@ h1 {
     margin-bottom: 25px;
     display: inline-block;
     min-width: 320px;
+    width: 100%;
+    max-width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .barcode-glow {
@@ -412,9 +414,12 @@ h1 {
 }
 
 #barcode {
+    width: 100%;
     max-width: 100%;
     height: auto;
+    min-height: 150px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    display: block;
 }
 
 /* Download Button */
@@ -542,8 +547,15 @@ h1 {
     }
 
     .barcode-wrapper {
-        padding: 30px 20px;
-        min-width: 280px;
+        padding: 25px 15px;
+        min-width: 100%;
+        width: 100%;
+        margin: 0 auto 25px;
+    }
+
+    #barcode {
+        min-height: 200px;
+        width: 100% !important;
     }
 
     .input-group input {
@@ -569,5 +581,13 @@ h1 {
     .btn-download {
         font-size: 1em;
         padding: 15px;
+    }
+
+    .barcode-wrapper {
+        padding: 20px 10px;
+    }
+
+    #barcode {
+        min-height: 220px;
     }
 }

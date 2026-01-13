@@ -43,17 +43,30 @@ function generateBarcode() {
     hideError();
     
     try {
-        // Barcode yaratish
+        // Mobil qurilma tekshiruvi
+        const isMobile = window.innerWidth <= 768;
+        
+        // Barcode yaratish - telefon skaner uchun optimallashtirilgan
         JsBarcode(barcodeSvg, number, {
             format: "CODE128",
-            width: 2,
-            height: 100,
+            width: isMobile ? 3.5 : 2.5,  // Mobil uchun kattaroq chiziqlar
+            height: isMobile ? 180 : 120,  // Mobil uchun balandroq
             displayValue: true,
-            fontSize: 20,
-            margin: 10,
+            fontSize: isMobile ? 28 : 22,  // Mobil uchun kattaroq font
+            margin: isMobile ? 20 : 15,  // Mobil uchun kattaroq margin
             background: "#ffffff",
-            lineColor: "#000000"
+            lineColor: "#000000",
+            marginTop: isMobile ? 20 : 15,
+            marginBottom: isMobile ? 20 : 15,
+            marginLeft: isMobile ? 20 : 15,
+            marginRight: isMobile ? 20 : 15
         });
+        
+        // Barcode SVG fonini oq qilish va kattalashtirish
+        barcodeSvg.style.backgroundColor = '#ffffff';
+        barcodeSvg.style.display = 'block';
+        barcodeSvg.style.width = '100%';
+        barcodeSvg.style.height = 'auto';
         
         // Barcode ko'rsatish
         barcodeContainer.classList.remove('hidden');
@@ -74,8 +87,10 @@ downloadBtn.addEventListener('click', function() {
     const ctx = canvas.getContext('2d');
     const img = new Image();
     
-    canvas.width = svg.clientWidth || 400;
-    canvas.height = svg.clientHeight || 150;
+    // Mobil uchun kattaroq canvas
+    const isMobile = window.innerWidth <= 768;
+    canvas.width = svg.clientWidth || (isMobile ? 600 : 500);
+    canvas.height = svg.clientHeight || (isMobile ? 250 : 180);
     
     img.onload = function() {
         ctx.fillStyle = 'white';
