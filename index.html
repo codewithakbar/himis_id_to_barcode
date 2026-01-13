@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Generator - 11 xonali raqam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="card glass-effect">
+            <div class="card-header">
+                <div class="icon-wrapper">
+                    <svg class="barcode-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 5H5V19H3V5ZM7 5H9V19H7V5ZM11 5H13V19H11V5ZM15 5H17V19H15V5ZM19 5H21V19H19V5Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h1><span class="gradient-text">Barcode</span> Generator</h1>
+                <p class="subtitle">11 xonali raqam kiriting va professional barcode yarating</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="numberInput">
+                    <span class="label-icon">🔢</span>
+                    11 xonali raqam
+                </label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="numberInput" 
+                        placeholder="12345678901"
+                        maxlength="11"
+                        pattern="[0-9]{11}"
+                    >
+                    <div class="input-glow"></div>
+                </div>
+                <small class="hint">
+                    <span class="hint-icon">ℹ️</span>
+                    Faqat raqamlar, 11 ta belgi
+                </small>
+            </div>
+
+            <button id="generateBtn" class="btn-primary">
+                <span class="btn-text">Barcode yaratish</span>
+                <span class="btn-icon">✨</span>
+                <div class="btn-shine"></div>
+            </button>
+
+            <div id="barcodeContainer" class="barcode-container hidden">
+                <div class="barcode-wrapper glass-effect">
+                    <div class="barcode-glow"></div>
+                    <svg id="barcode"></svg>
+                </div>
+                <button id="downloadBtn" class="btn-download">
+                    <span class="download-icon">⬇️</span>
+                    <span>Barcode yuklab olish</span>
+                    <div class="btn-ripple"></div>
+                </button>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                <span class="error-icon">⚠️</span>
+                <span class="error-text"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
